@@ -13,9 +13,30 @@
         <!--<constructor-arg value="Vladislav"/>-->
 
     </bean>
+
+    <bean id="musicBean1"
+          class="ru.safonty.springcourse.ClassicalMusic">
+    </bean>
+
+    <bean id="musicBean2"
+          class="ru.safonty.springcourse.RockMusic">
+    </bean>
+
+    <bean id="musicBean3"
+          class="ru.safonty.springcourse.RapMusic">
+    </bean>
+
     <bean id="musicPlayer"
           class="ru.safonty.springcourse.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+<!--        <property name="music" ref="musicBean"/>-->
+
+        <property name="musicList">
+            <list>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+            </list>
+        </property>
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>

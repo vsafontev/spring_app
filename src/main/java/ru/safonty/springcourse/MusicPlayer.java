@@ -1,8 +1,12 @@
 package ru.safonty.springcourse;
 
-public class MusicPlayer {
-    private Music music;
+import java.util.ArrayList;
+import java.util.List;
 
+public class MusicPlayer {
+//    private Music music;
+
+    private List<Music> musicList = new ArrayList<>();
     private String name;
     private int Volume;
 
@@ -22,18 +26,24 @@ public class MusicPlayer {
         Volume = volume;
     }
 
-    public MusicPlayer(Music music) {
-        this.music = music;
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
     }
+//    public MusicPlayer(Music music) {
+//        this.music = music;
+//    }
 
     public MusicPlayer() {
     }
 
-    public void setMusic(Music music) {
-        this.music = music;
-    }
+//    public void setMusic(Music music) {
+//        this.music = music;
+//    }
 
     public void PlayMusic(){
-        System.out.println("Playing: " + music.getSong());
+        for(Music music : musicList) {
+            System.out.println("Playing: " + music.getSong());
+        }
+//        System.out.println("Playing: " + music.getSong());
     }
 }
